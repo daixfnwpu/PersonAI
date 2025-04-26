@@ -1,0 +1,13 @@
+elasticsearch
+transformers
+datasets
+peft
+accelerate
+bitsandbytes
+sentencepiece
+scipy
+gradio
+pyannote.audio 
+torchaudio
+ffmpeg-python
+python-dotenv
