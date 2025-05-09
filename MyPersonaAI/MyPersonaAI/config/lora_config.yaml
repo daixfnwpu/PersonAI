@@ -1,6 +1,6 @@
 base_model: "meta-llama/Llama-2-7b-hf"
-lora_r: 8
-lora_alpha: 16
+lora_r: 4 
+lora_alpha: 8 
 lora_dropout: 0.1
 target_modules: ["q_proj", "v_proj"]
 batch_size: 4
