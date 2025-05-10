@@ -88,19 +88,39 @@ import numpy as np
 import os
 from pydub import AudioSegment
 
+### https://coqui-tts.readthedocs.io/en/latest/inference.html
+
+
+
+
+
 
 MODEL_NAME_CN = "tts_models/zh-CN/baker/tacotron2-DDC-GST"
 MODEL_NAME_EN ="tts_models/en/ljspeech/tacotron2-DDC"
-# 初始化模型（GPU 加速建议开启）
-tts = TTS(model_name=MODEL_NAME_EN, gpu=True)
-
-# 基本参数
+MODEL_NAME_ALL="tts_models/multilingual/multi-dataset/xtts_v2"
 speaker_wav_path = "data/speaker.wav"
+
+tts = TTS(MODEL_NAME_EN)
+tts.tts_with_vc_to_file(
+    "init speaker manager for multi-speaker training",
+    speaker_wav=speaker_wav_path,
+    file_path="data/output.wav"
+)
+
+print(f"tts_with_vc_to_file finshed")
+
+
+
+# 初始化模型（GPU 加速建议开启）
+tts = TTS(model_name=MODEL_NAME_ALL, gpu=False)
+print(TTS().list_models())
+# 基本参数
+
 # 加载 M4A 文件
-audio_t = AudioSegment.from_file("data/tongtongen.m4a", format="m4a")
+#audio_t = AudioSegment.from_file("data/tongtongen.m4a", format="m4a")
 
 # 将其导出为 WAV 格式
-audio_t.export(speaker_wav_path, format="wav")
+#audio_t.export(speaker_wav_path, format="wav")
 language = "en"
 sample_rate = 24000
 pause_sec = 0.5
@@ -134,9 +154,14 @@ for i, text in enumerate(lines, 1):
     audio = tts.tts(
         text=text,
         speaker_wav=speaker_wav_path,
-       # language=language,
+        language=language,
     )
-    
+    # audio = tts.tts_to_file(
+    #     text="你好，我是一个人工智能助手。",
+    #     speaker_wav="speaker.wav",  # 样本音频
+    #     language="zh",
+    #     file_path="output.wav"
+    # ) 
    # sf.write(f"data/segment_{i}.wav", audio, sample_rate)
 # 添加到组合数组
      # 计算每段的持续时间
@@ -167,14 +192,33 @@ final_audio = np.concatenate(combined_audio)
 # 保存最终完整音频
 final_output_path="data/segments_all.wav"
 sf.write(final_output_path, final_audio, sample_rate)
-
+print("finished the segments_allw.wav")
 # 保存字幕文件（SRT 格式）
-srt_output_path = "data/segments_all.srt"
+srt_output_path = "data/segmentfinal.srt"
 with open(srt_output_path, "w", encoding="utf-8") as f:
     f.write("\n".join(subtitles))
 
-print(f"\n✅ 所有段落已处理完成，完整语音已保存为：{final_output_path}")
+print(f"\n✅ 所有段落已处理完成，完整语音已保存为：{final_output_path},data/segmentfinal.wav ")
 print(f"字幕文件已保存为：{srt_output_path}")
 
 
 print("全部完成。")
+
+
+""" tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
+tts.tts_with_vc_to_file(
+    "Wie sage ich auf Italienisch, dass ich dich liebe?",
+    speaker_wav="target/speaker.wav",
+    file_path="output.wav"
+) """
+
+""" # 加载 xtts_v2 模型
+tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
+
+# 合成语音
+tts.tts_to_file(
+    text="你好，我是一个人工智能助手。",
+    speaker_wav="speaker.wav",  # 样本音频
+    language="zh",
+    file_path="output.wav"
+) """
