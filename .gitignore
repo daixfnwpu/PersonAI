@@ -77,3 +77,5 @@ flan-t5-small-lora-output/checkpoint-75/tokenizer_config.json
 flan-t5-small-lora-output/checkpoint-75/tokenizer.json
 flan-t5-small-lora-output/checkpoint-75/trainer_state.json
 flan-t5-small-lora-output/checkpoint-75/training_args.bin
+MyPersonaAI/MyPersonaAI/data/article.txt
+MyPersonaAI/MyPersonaAI/data/output.wav
