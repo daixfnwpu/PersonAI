@@ -18,7 +18,7 @@ import builtins
 import numpy as np
 from torch.serialization import add_safe_globals
 from TTS.utils.radam import RAdam
-
+####pip install git+https://github.com/coqui-ai/TTS.git  don't use pip to install this tts
 # 信任 RAdam 优化器用于反序列化
 add_safe_globals([
     dict,

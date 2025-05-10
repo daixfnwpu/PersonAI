@@ -30,8 +30,8 @@ model = AutoModelForCausalLM.from_pretrained(
 model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
-    r=2,
-    lora_alpha=8,
+    r=4,
+    lora_alpha=16,
     target_modules=["q_proj", "v_proj"],
     lora_dropout=0.1,
     bias="none",
