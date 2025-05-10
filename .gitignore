@@ -79,3 +79,8 @@ flan-t5-small-lora-output/checkpoint-75/trainer_state.json
 flan-t5-small-lora-output/checkpoint-75/training_args.bin
 MyPersonaAI/MyPersonaAI/data/article.txt
 MyPersonaAI/MyPersonaAI/data/output.wav
+MyPersonaAI/MyPersonaAI/config/ps.yaml
+MyPersonaAI/MyPersonaAI/data/segments_all.srt
+MyPersonaAI/MyPersonaAI/data/speaker.wav
+MyPersonaAI/MyPersonaAI/data/tongtongen.m4a
+MyPersonaAI/MyPersonaAI/data/tts_data/metadata.csv

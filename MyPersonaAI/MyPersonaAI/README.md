@@ -19,7 +19,7 @@ pip install transformers datasets accelerate peft bitsandbytes
     
     train: 采用lora技术；
         t5，来分析我的情感及归纳总结和分析我的文章；(已经完成： train_npl_lora.py)
-        tts:用OpenAI TTS 来完成文字转语音 (已经完成： tts_pipe.py)
+        tts:用OpenAI TTS 来完成文字转语音 (已经完成： tts_pipe.py),正在完成语音的特殊化，采用lora来实现语音的特殊化。(正在实现中ing,还没有找到可以用lora来fine tine的模型，有可能无法利用lora，只能用原始的增量训练)
         gpt： 训练我的语言模型；(已经完成： train_gpt_lora.py)
     
 
