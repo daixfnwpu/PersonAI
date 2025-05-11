@@ -11,3 +11,4 @@ pyannote.audio
 torchaudio
 ffmpeg-python
 python-dotenv
+coqui-tts

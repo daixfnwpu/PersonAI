@@ -82,6 +82,7 @@
 # # For demonstration purposes, we simply print the Mel spectrogram
 # print(mel_output)
 
+import torch
 from TTS.api import TTS
 import soundfile as sf
 import numpy as np
@@ -100,20 +101,23 @@ MODEL_NAME_EN ="tts_models/en/ljspeech/tacotron2-DDC"
 MODEL_NAME_ALL="tts_models/multilingual/multi-dataset/xtts_v2"
 speaker_wav_path = "data/speaker.wav"
 
-tts = TTS(MODEL_NAME_EN)
-tts.tts_with_vc_to_file(
-    "init speaker manager for multi-speaker training",
-    speaker_wav=speaker_wav_path,
-    file_path="data/output.wav"
-)
+# tts = TTS(MODEL_NAME_EN)
+# tts.tts_with_vc_to_file(
+#     "init speaker manager for multi-speaker training",
+#     speaker_wav=speaker_wav_path,
+#     file_path="data/output.wav"
+# )
 
-print(f"tts_with_vc_to_file finshed")
+# print(f"tts_with_vc_to_file finshed")
+
+
 
 
 
 # 初始化模型（GPU 加速建议开启）
 tts = TTS(model_name=MODEL_NAME_ALL, gpu=False)
 print(TTS().list_models())
+print(tts.speakers)
 # 基本参数
 
 # 加载 M4A 文件
