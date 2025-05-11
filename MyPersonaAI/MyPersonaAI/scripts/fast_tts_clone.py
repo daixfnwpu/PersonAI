@@ -101,24 +101,11 @@ MODEL_NAME_EN ="tts_models/en/ljspeech/tacotron2-DDC"
 MODEL_NAME_ALL="tts_models/multilingual/multi-dataset/xtts_v2"
 speaker_wav_path = "data/speaker.wav"
 
-# tts = TTS(MODEL_NAME_EN)
-# tts.tts_with_vc_to_file(
-#     "init speaker manager for multi-speaker training",
-#     speaker_wav=speaker_wav_path,
-#     file_path="data/output.wav"
-# )
-
-# print(f"tts_with_vc_to_file finshed")
-
-
-
-
 
 # 初始化模型（GPU 加速建议开启）
-tts = TTS(model_name=MODEL_NAME_ALL, gpu=False)
+tts = TTS(model_name=MODEL_NAME_ALL, gpu=True)
 print(TTS().list_models())
 print(tts.speakers)
-# 基本参数
 
 # 加载 M4A 文件
 #audio_t = AudioSegment.from_file("data/tongtongen.m4a", format="m4a")
@@ -129,18 +116,12 @@ language = "en"
 sample_rate = 24000
 pause_sec = 0.5
 
-# 输出目录
-os.makedirs("segments", exist_ok=True)
-
 # 读取文本
 with open("data/article.txt", "r", encoding="utf-8") as f:
     lines = [line.strip() for line in f if line.strip()]
 
 print(f"读取 {len(lines)} 段文本，准备生成语音...")
 
-# 一次性提取说话人嵌入向量（只做一次）
-print("提取说话人嵌入特征...")
-#speaker_embedding = (speaker_wav_path)
 
 # 静音段
 pause = np.zeros(int(sample_rate * pause_sec), dtype=np.float32)
@@ -160,14 +141,6 @@ for i, text in enumerate(lines, 1):
         speaker_wav=speaker_wav_path,
         language=language,
     )
-    # audio = tts.tts_to_file(
-    #     text="你好，我是一个人工智能助手。",
-    #     speaker_wav="speaker.wav",  # 样本音频
-    #     language="zh",
-    #     file_path="output.wav"
-    # ) 
-   # sf.write(f"data/segment_{i}.wav", audio, sample_rate)
-# 添加到组合数组
      # 计算每段的持续时间
     duration = len(audio) / sample_rate
 
@@ -206,23 +179,3 @@ print(f"\n✅ 所有段落已处理完成，完整语音已保存为：{final_ou
 print(f"字幕文件已保存为：{srt_output_path}")
 
 
-print("全部完成。")
-
-
-""" tts = TTS("tts_models/de/thorsten/tacotron2-DDC")
-tts.tts_with_vc_to_file(
-    "Wie sage ich auf Italienisch, dass ich dich liebe?",
-    speaker_wav="target/speaker.wav",
-    file_path="output.wav"
-) """
-
-""" # 加载 xtts_v2 模型
-tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=True)
-
-# 合成语音
-tts.tts_to_file(
-    text="你好，我是一个人工智能助手。",
-    speaker_wav="speaker.wav",  # 样本音频
-    language="zh",
-    file_path="output.wav"
-) """
