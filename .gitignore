@@ -79,3 +79,5 @@ flan-t5-small-lora-output/checkpoint-75/trainer_state.json
 flan-t5-small-lora-output/checkpoint-75/training_args.bin
 MyPersonaAI/MyPersonaAI/config/ps.yaml
 MyPersonaAI/MyPersonaAI/data/*
+MyPersonaAI/MyPersonaAI/models/llama-3.2-1b-instruct-q8_0.gguf
+MyPersonaAI/MyPersonaAI/scripts/__pycache__/llama_cpp.cpython-311.pyc

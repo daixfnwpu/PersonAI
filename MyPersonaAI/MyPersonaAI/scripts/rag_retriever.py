@@ -1,9 +1,20 @@
 # This script implements the Elasticsearch retriever for RAG
 from elasticsearch import Elasticsearch
+from torch import float16
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 from elasticsearch import Elasticsearch
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer,AutoModelForCausalLM,BitsAndBytesConfig
+
+model_id = "facebook/opt-125m"
+
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_use_double_quant=True,
+    llm_int8_threshold=6.0,
+    bnb_4bit_compute_dtype=float16,  # ✅ 添加这一行
+)
 
 class ElasticsearchRetriever:
     def __init__(self, es_host="localhost", es_port=9200, index_name="knowledge_base", top_k=3):
@@ -12,8 +23,14 @@ class ElasticsearchRetriever:
         self.top_k = top_k
         
         # ✅ 使用 facebook/bart-large
-        self.model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large")
-        self.tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_id,
+            quantization_config=bnb_config,
+            device_map="auto"
+        )
+        # self.model = AutoModelForSeq2SeqLM.from_pretrained("facebook/bart-large")
+        # self.tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large")
         
     def search_documents(self, query):
         body = {
