@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./MyPersonaAI/MyPersonaAI/MiniGPT-4"
+    ]
+}

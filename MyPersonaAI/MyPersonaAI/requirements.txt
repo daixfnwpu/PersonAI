@@ -6,7 +6,7 @@ accelerate
 bitsandbytes
 sentencepiece
 scipy
-gradio
+#gradio
 pyannote.audio 
 torchaudio
 ffmpeg-python
