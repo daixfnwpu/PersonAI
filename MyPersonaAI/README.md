@@ -1,12 +1,15 @@
 # MyPersonaAI
 
+
+
+
 This project aims to create a personalized AI model based on LoRA (Low-Rank Adaptation) technique.
 pip uninstall torch torchvision torchaudio -y
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 pip install transformers datasets accelerate peft bitsandbytes
 
-
+The Web server and the AiServer use the : https://github.com/wan-h/awesome-digital-human-live2d ,ths;
 该工程主要实现数字：数字拟身，忆我如初、思镜同在、心镜随行；
 训练
     audio or text process:
