@@ -1,0 +1,30 @@
+elasticsearch
+transformers
+datasets
+peft
+accelerate
+bitsandbytes
+sentencepiece
+scipy
+#gradio
+pyannote.audio 
+torchaudio
+ffmpeg-python
+python-dotenv
+coqui-tts
+emoji
+fastapi
+httpx
+numpy
+# openai==1.13.3
+# pika==1.3.2
+pydub
+pytest
+pytest_asyncio
+websockets
+SpeechRecognition
+# qianfan==0.3.3
+requests
+uvicorn
+yacs
+whisper
