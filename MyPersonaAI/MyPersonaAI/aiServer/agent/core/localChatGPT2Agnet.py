@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
-@File    :   localAgnet.py
-@Author  :   一力辉 
+@File    :   localChatGPT2Agnet.py
+@Author  :   daixfnwpu 
 '''
 
 import asyncio
@@ -15,11 +15,11 @@ from aiServer.engine.engineBase import BaseEngine
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from fastapi.responses import JSONResponse
 
-__all__ = ["LocalAgent"]
+__all__ = ["LocalChatGPT2Agnet"]
 
 
-@AGENTS.register("LocalAgent")
-class LocalAgent(BaseAgent):
+@AGENTS.register("LocalChatGPT2Agnet")
+class LocalChatGPT2Agnet(BaseAgent):
 
     def checkKeys(self) -> List[str]:
         return []
@@ -47,7 +47,7 @@ class LocalAgent(BaseAgent):
     ):##-> AsyncGenerator[TextMessage,None]:
         try: 
             if isinstance(input, AudioMessage):
-                raise RuntimeError("LocalAgent does not support AudioMessage input")
+                raise RuntimeError("LocalChatGPT2Agnet does not support AudioMessage input")
             result = await asyncio.to_thread(self.post, input.data)
             logger.debug(f"result is {result}") 
             yield result
@@ -74,4 +74,4 @@ class LocalAgent(BaseAgent):
         # Decode and print
         generated_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
         logger.debug(f"generated_text is {generated_text}")
-        return generated_text[len(prompt):]
+        return generated_text[len(generated_text):]
