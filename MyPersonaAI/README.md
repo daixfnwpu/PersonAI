@@ -42,3 +42,6 @@ pip install transformers datasets accelerate peft bitsandbytes
     inference： 使用t5和gpt来实现对话；(opt-150 model)
 
   *  UI:  将这里面的整个代码，转移到： live2d中的digitalhummer 中去； 
+
+
+

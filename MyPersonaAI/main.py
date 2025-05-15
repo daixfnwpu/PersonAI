@@ -4,11 +4,11 @@
 @Author  :   一力辉 
 '''
 
-from digitalHuman.utils import logger, config
-from digitalHuman.bin import runServer
+from aiServer.utils import logger, config
+from aiServer.bin import runServer
 
 def showEnv():
-    logger.info(f"[System] Welcome to Awesome digitalHuman System")
+    logger.info(f"[System] Welcome to Awesome aiServer System")
     logger.info(f"[System] Runing config:\n{config}")
 
 

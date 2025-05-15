@@ -6,7 +6,7 @@ import { Comm } from "@/app/lib/comm";
 // ==================== 交互模式 ==================
 export enum InteractionMode {
     CHATBOT = "聊天模式",
-    DIGITALHUMAN = "数字人模式",
+    aiServer = "数字人模式",
     IMMERSIVE = "沉浸模式",
 
 }
@@ -20,9 +20,9 @@ interface InteractionModeState {
 
 export const useInteractionModeStore = create<InteractionModeState>()(
     (set) => ({
-        mode: InteractionMode.DIGITALHUMAN,
+        mode: InteractionMode.aiServer,
         setChatbotMode: () => set((state) => ({ mode: InteractionMode.CHATBOT })),
-        setDigitalhuamnMode: () => set((state) => ({ mode: InteractionMode.DIGITALHUMAN })),
+        setDigitalhuamnMode: () => set((state) => ({ mode: InteractionMode.aiServer })),
         setImmersiveMode: () => set((state) => ({ mode: InteractionMode.IMMERSIVE })),
     })
 
