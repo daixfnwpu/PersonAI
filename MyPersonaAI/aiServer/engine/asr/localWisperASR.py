@@ -15,10 +15,10 @@ from speech_recognition import AudioData
 from aiServer.utils import AudioMessage, TextMessage
 from aiServer.utils import logger
 
-__all__ = ["LocalAPI"]
+__all__ = ["LocalWisperAPI"]
 
-@ASREngines.register("LocalAPI")
-class LocalAPI(BaseEngine): 
+@ASREngines.register("LocalWisperAPI")
+class LocalWisperAPI(BaseEngine): 
     def setup(self):
         # Load the 'base' Whisper model
         self.model = whisper.load_model("base")

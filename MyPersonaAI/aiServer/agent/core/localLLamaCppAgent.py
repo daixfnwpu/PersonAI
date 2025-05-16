@@ -13,14 +13,13 @@ from typing import Any, AsyncGenerator, Dict, List, Optional, Union
 from aiServer.utils import logger
 from aiServer.utils import AudioMessage, TextMessage
 from aiServer.engine.engineBase import BaseEngine
-from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from fastapi.responses import JSONResponse
 
-__all__ = ["localLLamaCppAgent"]
+__all__ = ["LocalLLamaCppAgent"]
 
 
-@AGENTS.register("localLLamaCppAgent")
-class localLLamaCppAgent(BaseAgent):
+@AGENTS.register("LocalLLamaCppAgent")
+class LocalLLamaCppAgent(BaseAgent):
 
     def checkKeys(self) -> List[str]:
         return []

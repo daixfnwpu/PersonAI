@@ -7,13 +7,13 @@ SERVER:
   PORT: 8000
   ENGINES:
     ASR: 
-      SUPPORT_LIST: [  "googleAPI.yaml"  ]
-      DEFAULT: "googleAPI.yaml"
+      SUPPORT_LIST: ["localWisperAPI.yaml"]
+      DEFAULT: "localWisperAPI.yaml"
     LLM: 
-      SUPPORT_LIST: ["Gpt2API.yaml" ]
-      DEFAULT:  "Gpt2API.yaml"
+      SUPPORT_LIST: ["openaiAPI.yaml" ]
+      DEFAULT:  "openaiAPI.yaml"
     TTS: 
-      SUPPORT_LIST: [ "edgeAPI.yaml","localAPI.yaml","coquiTT.yaml"]
+      SUPPORT_LIST: [ "edgeAPI.yaml","coquiTT.yaml"]
       DEFAULT: "coquiTT.yaml"
   AGENTS: 
     SUPPORT_LIST: [ "repeaterAgent.yaml","localLLamaCppAgent.yaml"]

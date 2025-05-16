@@ -18,6 +18,7 @@ class ASRFactory():
     """
     @staticmethod
     def create(config: CN) -> BaseEngine:
+        logger.info(f"config Name is :{config.NAME}")
         if config.NAME in ASREngines.list():
             logger.info(f"[ASRFactory] Create engine: {config.NAME}")
             return ASREngines.get(config.NAME)(config)

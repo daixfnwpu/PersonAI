@@ -18,6 +18,7 @@ class TTSFactory():
     """
     @staticmethod
     def create(config: CN) -> BaseEngine:
+        logger.info(f"the config name is :{config.NAME}")
         if config.NAME in TTSEngines.list():
             logger.info(f"[TTSFactory] Create engine: {config.NAME}")
             return TTSEngines.get(config.NAME)(config)

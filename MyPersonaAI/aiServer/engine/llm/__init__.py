@@ -5,8 +5,7 @@
 '''
 
 from .openaiLLM import OpenaiAPI
-from .baiduLLM import BaiduAPI
 from .llmFactory import LLMFactory
-from .gpt2LLM import Gpt2API
+###from .gpt2LLM import Gpt2API
 
 __all__ = ['LLMFactory']

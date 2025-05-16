@@ -3,10 +3,6 @@
 @File    :   __init__.py
 @Author  :   一力辉 
 '''
-
-from .baiduASR import BaiduAPI
-from .googleASR import GoogleAPI
-from .difyASR import DifyAPI
 from .asrFactory import ASRFactory
-from .localASR import LocalAPI
+from .localWisperASR import LocalWisperAPI 
 __all__ = ['ASRFactory']
