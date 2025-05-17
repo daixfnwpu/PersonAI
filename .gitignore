@@ -1,6 +1,7 @@
 MyPersonaAI/.env
 **/__pycache__
 **/logs/*
+MyPersonaAI/llmServer/unsloth-env/*
 opt-125m-lora-output/checkpoint-25/adapter_config.json
 opt-125m-lora-output/checkpoint-25/adapter_model.safetensors
 opt-125m-lora-output/checkpoint-25/merges.txt
@@ -166,3 +167,5 @@ MyPersonaAI/aiServer/agent/__pycache__/__init__.cpython-311.pyc
 MyPersonaAI/aiServer/agent/__pycache__/agentBase.cpython-311.pyc
 MyPersonaAI/aiServer/agent/__pycache__/agentPool.cpython-311.pyc
 MyPersonaAI/aiServer/agent/__pycache__/builder.cpython-311.pyc
+
+MyPersonaAI/llmServer/unsloth_compiled_cache/

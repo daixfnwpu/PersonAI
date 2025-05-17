@@ -10,6 +10,11 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install transformers datasets accelerate peft bitsandbytes
 
 The Web server and the AiServer use the : https://github.com/wan-h/awesome-digital-human-live2d ,ths;
+
+
+不要在用 TTS 的环境中训练 LLM
+
+
 该工程主要实现数字：数字拟身，忆我如初、思镜同在、心镜随行；
 训练
     audio or text process:
