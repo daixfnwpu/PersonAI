@@ -169,3 +169,4 @@ MyPersonaAI/aiServer/agent/__pycache__/agentPool.cpython-311.pyc
 MyPersonaAI/aiServer/agent/__pycache__/builder.cpython-311.pyc
 
 MyPersonaAI/llmServer/unsloth_compiled_cache/
+MyPersonaAI/llmServer/gemma-1b-qlora-finetuned/
